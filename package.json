@@ -1,0 +1,23 @@
+{
+  "name": "adoptvilla-dogsvilla-style-final",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 3000",
+    "start": "vite --host 0.0.0.0 --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "node scripts/check.mjs && node scripts/verify-mock-api.mjs",
+    "dev:static": "node scripts/dev.mjs"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "vite": "^8.2.2"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.114.0"
+  }
+}
