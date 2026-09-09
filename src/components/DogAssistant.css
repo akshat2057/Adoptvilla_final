@@ -1,8 +1,8 @@
 .dog-assistant {
   position: fixed;
   right: 20px;
-  bottom: 20px;
-  width: 260px;     /* yaha size bada kiya */
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  width: 260px;
   z-index: 99999;
   pointer-events: none;
 }
@@ -12,16 +12,16 @@
   height: auto;
   display: block;
   object-fit: contain;
+  background: transparent;
 }
 
 
-/* Mobile Responsive */
 @media (max-width: 768px) {
 
   .dog-assistant {
-    width: 210px;   /* mobile me bhi bada */
-    left: -20px;
-    bottom: 10px;
+    width: 150px;
+    right: 10px;
+    bottom: calc(15px + env(safe-area-inset-bottom));
   }
 
 }
