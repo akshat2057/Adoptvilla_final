@@ -3,6 +3,7 @@ import React, {
   useState,
 } from "react";
 import Loader from "./components/Loader";
+import DogAssistant from "./components/DogAssistant.jsx";
 
 import Home from "./pages/Home.jsx";
 import Dashboard from "./pages/Dashboard.jsx";
