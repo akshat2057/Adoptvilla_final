@@ -1,27 +1,22 @@
-.dog-assistant {
-  position: fixed;
-  right: 20px;
-  bottom: calc(20px + env(safe-area-inset-bottom));
-  width: 260px;
-  z-index: 99999;
-  pointer-events: none;
+.dog-assistant{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:260px;
+  z-index:99999;
+  pointer-events:none;
 }
-
-.dog-assistant video {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  background: transparent;
+.dog-assistant video{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
+  background:transparent;
 }
-
-
-@media (max-width: 768px) {
-
-  .dog-assistant {
-    width: 150px;
-    right: 10px;
-    bottom: calc(15px + env(safe-area-inset-bottom));
-  }
-
+@media(max-width:768px){
+ .dog-assistant{
+   width:170px;
+   right:10px;
+   bottom:calc(15px + env(safe-area-inset-bottom));
+ }
 }
