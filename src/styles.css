@@ -2455,3 +2455,77 @@ input,select,textarea{font-size:14px!important}
   height:220px;
   object-fit:contain;
 }
+/* Mobile hero cleanup */
+@media (max-width: 768px) {
+
+  /* Hide hero buttons */
+  .hero-cta {
+    display: none;
+  }
+
+  /* Hide hero search bar */
+  .hero-search {
+    display: none;
+  }
+
+}
+@media screen and (max-width: 768px) {
+
+  .hero-cta-row {
+    display: none !important;
+  }
+
+  .hero-search {
+    display: none !important;
+  }
+
+}
+.footer-bottom a {
+  color: #ffd400;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.footer-bottom a:hover {
+  color: #ffffff;
+}
+.pet-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.pet-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+
+.tags {
+  min-height: 72px;
+  align-content: flex-start;
+}
+
+
+.pet-body a {
+  margin-top: auto;
+}
+.pet-body a {
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid #eadfd5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.pet-image {
+  height: 265px;
+}
+
+.pet-image img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}

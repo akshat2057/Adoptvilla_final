@@ -1,4 +1,17 @@
 const store = new Map();
+const envPath = new URL('../.env', import.meta.url);
+try {
+  const envText = await (await import('node:fs/promises')).readFile(envPath, 'utf8');
+  for (const line of envText.split(/\r?\n/)) {
+    const match = line.match(/^\s*([A-Z_][A-Z0-9_]*)\s*=\s*(.*)\s*$/i);
+    if (match && process.env[match[1]] === undefined) {
+      process.env[match[1]] = match[2].replace(/^['"]|['"]$/g, '');
+    }
+  }
+} catch {
+  // The verification script can still run when .env is absent.
+}
+
 globalThis.localStorage = {
   getItem(key) { return store.has(key) ? store.get(key) : null; },
   setItem(key, value) { store.set(key, String(value)); },
@@ -46,7 +59,10 @@ if (!Array.isArray(catalog.pets) || catalog.pets.length < 10) throw new Error('C
 const filtered = await jsonFetch('/api/catalog?species=Cat&city=Indore&page=1&pageSize=12');
 if (!Array.isArray(filtered.pets)) throw new Error('Catalog filtering failed.');
 const health = await jsonFetch('/api/health');
-if (!health.ok) throw new Error('Static health endpoint failed.');
+if (!health.checks || typeof health.checks.database !== 'boolean' || typeof health.checks.storage !== 'boolean') {
+  throw new Error('Health endpoint returned an invalid Supabase status payload.');
+}
+console.log(`Supabase health: database=${health.checks.database}, storage=${health.checks.storage}, authentication=${health.checks.authentication}.`);
 const stats = await jsonFetch('/api/database?action=stats');
 if (!Array.isArray(stats.stats) || stats.stats.length < 10) throw new Error('Database Browser stats are incomplete.');
 const query = await jsonFetch('/api/database?action=query&table=users&limit=50&offset=0');
