@@ -1998,6 +1998,34 @@ function databaseApi(url) {
   return json({ rows: filtered.slice(offset, offset + limit), totalCount: filtered.length });
 }
 
+async function healthApi() {
+  const [authResult, databaseResult, storageResult] = await Promise.allSettled([
+    supabase.auth.getSession(),
+    supabase.from("pets").select("id", { count: "exact", head: true }),
+    supabase.storage.from("pet-media").list("", { limit: 1 }),
+  ]);
+
+  const authReady = authResult.status === "fulfilled" && !authResult.value.error;
+  const databaseReady = databaseResult.status === "fulfilled" && !databaseResult.value.error;
+  const storageReady = storageResult.status === "fulfilled" && !storageResult.value.error;
+
+  return json({
+    ok: authReady && databaseReady && storageReady,
+    checks: {
+      database: databaseReady,
+      storage: storageReady,
+      authentication: authReady,
+      providers: {
+        email: true,
+        whatsapp: false,
+        sms: false,
+        phoneOtp: false,
+        razorpay: false,
+      },
+    },
+  });
+}
+
 export function installMockApi() {
   if (window.__adoptvillaMockApiInstalled) return;
   window.__adoptvillaMockApiInstalled = true;
@@ -2008,22 +2036,7 @@ export function installMockApi() {
     if (url.origin !== window.location.origin) return nativeFetch(input, init);
     if (url.pathname === "/api/catalog") return catalog(url);
     if (url.pathname === "/api/directory") return json({ records: indoreDirectory });
-   if (url.pathname === "/api/health")
-  return json({
-    ok: true,
-    checks: {
-      database: false,
-      storage: false,
-      authentication: true,
-      providers: {
-        email: false,
-        whatsapp: false,
-        sms: false,
-        phoneOtp: false,
-        razorpay: false,
-      },
-    },
-  });
+   if (url.pathname === "/api/health") return healthApi();
    if (
   url.pathname === "/api/database"
 ) {

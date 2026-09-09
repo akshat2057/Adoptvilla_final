@@ -1,0 +1,27 @@
+.dog-assistant {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 260px;     /* yaha size bada kiya */
+  z-index: 99999;
+  pointer-events: none;
+}
+
+.dog-assistant video {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+
+  .dog-assistant {
+    width: 210px;   /* mobile me bhi bada */
+    left: -20px;
+    bottom: 10px;
+  }
+
+}

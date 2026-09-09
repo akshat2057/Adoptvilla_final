@@ -432,7 +432,12 @@ export default function Home({ isAuthenticated = false }) {
           <div><b>Animal support</b><a href="/dashboard?tab=Lost%20%26%20found">Lost &amp; Found</a><button onClick={() => start("rescue")}>Rescue &amp; Emergency</button><button onClick={() => start("offer")}>Offer your help</button><button onClick={() => start("services")}>Local care</button></div>
           <div><b>Your account</b><a href="/login?return_to=%2Fdashboard">Log in</a><a href="/signup">Create account</a><a href="/dashboard">Dashboard</a><a href="/indore">Indore directory</a></div>
         </div>
-        <div className="footer-bottom"><span>© 2026 AdoptVilla</span><span>Privacy by design · Welfare first · No commercial pet sales</span></div>
+        <div className="footer-bottom"><span>
+  © 2026{" "}
+  <a href="https://kickstartxathleteunited.com/" target="_blank" rel="noopener noreferrer">
+    AdoptVilla Powered By KickstartX .
+  </a>
+</span><span>Privacy by design · Welfare first · No commercial pet sales</span></div>
       </footer>
 
       {journey && <div className="modal-backdrop" role="presentation">
