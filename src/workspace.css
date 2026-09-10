@@ -1,0 +1,3351 @@
+/* ======================================================================
+   ADOPTVILLA AUTHENTICATED WORKSPACE — CLEAN REPLACEMENT STYLESHEET
+   Replace src/workspace.css completely with this file.
+   Landing/public pages are intentionally not targeted.
+   ====================================================================== */
+
+:root {
+  --av-side: 288px;
+  --av-brown: #4d3027;
+  --av-brown-2: #6c4a40;
+  --av-brown-3: #7b584d;
+  --av-page: #f7f4ec;
+  --av-card: #ffffff;
+  --av-soft: #fbfaf6;
+  --av-ink: #142019;
+  --av-muted: #736a62;
+  --av-line: #dddcd4;
+  --av-warm-line: #e8d8c4;
+  --av-green: #1f6a3b;
+  --av-green-2: #174f2d;
+  --av-gold: #d4a91b;
+  --av-orange: #d95e36;
+  --av-r10: 10px;
+  --av-r12: 12px;
+  --av-r16: 16px;
+  --av-shadow: 0 12px 32px rgba(56, 42, 28, .055);
+}
+
+/* ---------- workspace reset ---------- */
+.dashboard-shell,
+.admin-shell,
+.dashboard-shell *,
+.admin-shell * {
+  box-sizing: border-box !important;
+}
+
+.dashboard-shell,
+.admin-shell {
+  width: 100% !important;
+  min-height: 100vh !important;
+  background: var(--av-page) !important;
+  color: var(--av-ink) !important;
+  overflow-x: clip !important;
+}
+
+.dashboard-main *,
+.admin-main * {
+  min-width: 0;
+}
+
+.dashboard-main img,
+.admin-main img {
+  max-width: 100% !important;
+}
+
+/* ---------- desktop shell ---------- */
+@media (min-width: 901px) {
+  .dashboard-shell,
+  .admin-shell {
+    display: block !important;
+  }
+
+  .dashboard-sidebar,
+  .admin-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    width: var(--av-side) !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    margin: 0 !important;
+    padding: 18px 15px 14px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    overflow: hidden !important;
+    background: var(--av-brown) !important;
+    color: #fff !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    z-index: 100 !important;
+  }
+
+  .dashboard-main,
+  .admin-main {
+    width: calc(100% - var(--av-side)) !important;
+    max-width: none !important;
+    min-height: 100vh !important;
+    margin: 0 0 0 var(--av-side) !important;
+    padding: 24px 28px 56px !important;
+    background: var(--av-page) !important;
+    overflow: visible !important;
+  }
+}
+
+/* ---------- sidebar ---------- */
+.dashboard-brand,
+.admin-brand {
+  width: 100% !important;
+  flex: 0 0 auto !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  margin: 0 !important;
+  padding: 0 7px 11px !important;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+
+.dashboard-brand .dogsvilla-mark,
+.admin-brand .dogsvilla-mark {
+  width: 40px !important;
+  height: 34px !important;
+  flex: 0 0 40px !important;
+  object-fit: contain !important;
+}
+
+.dashboard-brand .brand-divider,
+.admin-brand .brand-divider {
+  width: 1px !important;
+  height: 34px !important;
+  flex: 0 0 1px !important;
+  background: rgba(255,255,255,.24) !important;
+}
+
+.dashboard-brand b,
+.admin-brand b {
+  display: block !important;
+  color: #fff !important;
+  font-size: 15px !important;
+  line-height: 1.08 !important;
+  font-weight: 800 !important;
+  letter-spacing: .025em !important;
+}
+
+.dashboard-brand small,
+.admin-brand small {
+  display: block !important;
+  margin-top: 3px !important;
+  color: #ded1cb !important;
+  font-size: 9px !important;
+  line-height: 1.1 !important;
+  letter-spacing: .09em !important;
+}
+
+.dashboard-sidebar nav,
+.admin-sidebar nav {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  margin: 0 !important;
+  padding: 0 2px !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: none !important;
+}
+
+.dashboard-sidebar nav::-webkit-scrollbar,
+.admin-sidebar nav::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.dashboard-sidebar nav button,
+.admin-sidebar nav button {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 31px !important;
+  height: auto !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 6px 11px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #eadfd9 !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  font-size: 12.5px !important;
+  line-height: 1.15 !important;
+  font-weight: 650 !important;
+  text-align: left !important;
+  white-space: normal !important;
+  transform: none !important;
+}
+
+.dashboard-sidebar nav button:hover,
+.admin-sidebar nav button:hover {
+  background: rgba(255,255,255,.08) !important;
+  color: #fff !important;
+}
+
+.dashboard-sidebar nav button.active,
+.admin-sidebar nav button.active {
+  background: var(--av-brown-3) !important;
+  color: #fff !important;
+  font-weight: 750 !important;
+}
+
+.dashboard-admin-link,
+.dashboard-signout,
+.admin-account a {
+  width: 100% !important;
+  min-height: 38px !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 8px 11px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255,255,255,.22) !important;
+  border-radius: 8px !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 12px !important;
+  line-height: 1.2 !important;
+  font-weight: 750 !important;
+  text-decoration: none !important;
+  box-shadow: none !important;
+}
+
+.dashboard-admin-link:hover,
+.dashboard-signout:hover,
+.admin-account a:hover {
+  background: rgba(255,255,255,.08) !important;
+}
+
+.admin-account {
+  flex: 0 0 auto !important;
+  display: grid !important;
+  gap: 6px !important;
+  color: #fff !important;
+}
+
+.admin-account b { color: #fff !important; font-size: 12px !important; }
+.admin-account small { color: #d9cbc5 !important; font-size: 10px !important; }
+
+/* ---------- content width ---------- */
+.dashboard-main > *,
+.admin-main > * {
+  width: min(100%, 1480px) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* ---------- typography ---------- */
+.dashboard-main,
+.admin-main {
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+}
+
+.dashboard-main h1,
+.admin-main h1 {
+  margin: 0 !important;
+  color: var(--av-ink) !important;
+  font-size: 31px !important;
+  line-height: 1.08 !important;
+  font-weight: 780 !important;
+  letter-spacing: -.025em !important;
+}
+
+.dashboard-main h2,
+.admin-main h2 {
+  margin: 0 !important;
+  color: var(--av-ink) !important;
+  font-size: 23px !important;
+  line-height: 1.2 !important;
+  font-weight: 760 !important;
+  letter-spacing: -.018em !important;
+}
+
+.dashboard-main h3,
+.admin-main h3 {
+  margin: 0 !important;
+  color: var(--av-ink) !important;
+  font-size: 17px !important;
+  line-height: 1.28 !important;
+  font-weight: 730 !important;
+}
+
+.dashboard-main h4,
+.admin-main h4 {
+  margin: 0 !important;
+  color: var(--av-ink) !important;
+  font-size: 14px !important;
+  line-height: 1.3 !important;
+  font-weight: 720 !important;
+}
+
+.dashboard-main p,
+.admin-main p {
+  color: var(--av-muted) !important;
+  font-size: 13.5px !important;
+  line-height: 1.52 !important;
+}
+
+.dashboard-main small,
+.admin-main small {
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+}
+
+.dashboard-main .kicker,
+.admin-main .kicker,
+.dashboard-title-block > span,
+.admin-title-block > span {
+  color: var(--av-green) !important;
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  font-weight: 850 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+/* ---------- top header ---------- */
+.dashboard-top,
+.admin-top {
+  width: 100% !important;
+  min-height: 126px !important;
+  margin: 0 auto 22px !important;
+  padding: 23px 26px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 22px !important;
+  background: var(--av-card) !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 18px !important;
+  box-shadow: var(--av-shadow) !important;
+}
+
+.dashboard-title-block,
+.admin-title-block {
+  flex: 1 1 auto !important;
+  display: grid !important;
+  gap: 8px !important;
+}
+
+.dashboard-title-block p,
+.admin-title-block p {
+  max-width: 840px !important;
+  margin: 0 !important;
+}
+
+.account-chip,
+.admin-live {
+  flex: 0 0 auto !important;
+  max-width: 320px !important;
+  padding: 11px 14px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: var(--av-soft) !important;
+  box-shadow: none !important;
+}
+
+.account-chip {
+  display: grid !important;
+  gap: 2px !important;
+  text-align: right !important;
+}
+
+.account-chip b { font-size: 12.5px !important; }
+.account-chip small { color: var(--av-muted) !important; font-size: 11px !important; }
+
+/* ---------- notices ---------- */
+.dashboard-notice {
+  width: 100% !important;
+  margin: 0 auto 20px !important;
+  padding: 11px 14px !important;
+  border: 1px solid #cbdacb !important;
+  border-radius: 10px !important;
+  background: #f0f6f1 !important;
+  color: #31583d !important;
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+}
+
+/* ---------- section headers ---------- */
+.dashboard-section-head,
+.admin-panel-head,
+.lost-found-section-head,
+.lost-found-form-head,
+.post-adoption-heading,
+.trust-card-head {
+  width: 100% !important;
+  margin: 0 0 16px !important;
+  display: flex !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  gap: 18px !important;
+  flex-wrap: wrap !important;
+}
+
+.dashboard-section-head > div:first-child,
+.admin-panel-head > div:first-child,
+.lost-found-section-head > div:first-child,
+.lost-found-form-head > div:first-child,
+.post-adoption-heading > div:first-child,
+.trust-card-head > div:first-child {
+  flex: 1 1 560px !important;
+  min-width: 0 !important;
+  max-width: 900px !important;
+}
+
+.dashboard-section-head h2,
+.admin-panel-head h2,
+.lost-found-section-head h3,
+.post-adoption-heading h3 {
+  margin-bottom: 4px !important;
+}
+
+.dashboard-section-head p,
+.admin-panel-head p,
+.lost-found-section-head p,
+.post-adoption-heading p {
+  margin: 0 !important;
+}
+
+/* ---------- button system ---------- */
+.dashboard-main button,
+.admin-main button,
+.dashboard-main a.primary,
+.admin-main a.primary,
+.dashboard-main .dashboard-section-head > a,
+.rescue-head-actions > a {
+  min-height: 40px !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 9px 14px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  border: 1px solid #ddd2c5 !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  color: #39291f !important;
+  box-shadow: none !important;
+  font-family: inherit !important;
+  font-size: 12.5px !important;
+  line-height: 1.2 !important;
+  font-weight: 720 !important;
+  text-decoration: none !important;
+  white-space: normal !important;
+  transform: none !important;
+}
+
+.dashboard-main button:hover,
+.admin-main button:hover,
+.dashboard-main .dashboard-section-head > a:hover,
+.rescue-head-actions > a:hover {
+  background: #faf7f1 !important;
+  transform: none !important;
+}
+
+.dashboard-main button.primary,
+.dashboard-main .primary,
+.admin-main button.primary,
+.admin-main .primary {
+  border-color: var(--av-green) !important;
+  background: var(--av-green) !important;
+  color: #fff !important;
+}
+
+.dashboard-main button.primary:hover,
+.dashboard-main .primary:hover,
+.admin-main button.primary:hover,
+.admin-main .primary:hover {
+  border-color: var(--av-green-2) !important;
+  background: var(--av-green-2) !important;
+  color: #fff !important;
+}
+
+.dashboard-main button:disabled,
+.admin-main button:disabled {
+  opacity: .5 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+}
+
+.fit-actions,
+.workflow-actions,
+.lost-found-head-actions,
+.rescue-head-actions,
+.crm-head-actions,
+.payment-actions,
+.lost-found-match-actions,
+.lost-found-report-actions,
+.compatibility-actions,
+.compatibility-buttons,
+.admin-row-actions,
+.purpose-actions,
+.rescue-case-actions {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 9px !important;
+}
+
+/* ---------- standard form controls ---------- */
+.dashboard-main label,
+.admin-main label {
+  min-width: 0 !important;
+  margin: 0 !important;
+  color: #273128 !important;
+  font-size: 12.5px !important;
+  line-height: 1.3 !important;
+  font-weight: 700 !important;
+}
+
+.dashboard-main .form-grid > label,
+.admin-main .form-grid > label,
+.dashboard-main .checkin-form > label,
+.dashboard-main .support-request-form > label,
+.dashboard-main .safe-return-form > label,
+.dashboard-main .journey-event-form > label,
+.dashboard-main .trust-form > label,
+.admin-main .admin-inline-form > label,
+.admin-main .commerce-form > label,
+.admin-main .admin-weight-form > label {
+  display: grid !important;
+  gap: 6px !important;
+}
+
+.dashboard-main input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.dashboard-main select,
+.admin-main input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.admin-main select {
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 43px !important;
+  min-height: 43px !important;
+  margin: 0 !important;
+  padding: 0 12px !important;
+  border: 1px solid #cfd7cf !important;
+  border-radius: 9px !important;
+  background-color: #fff !important;
+  color: var(--av-ink) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  line-height: 1.2 !important;
+  font-weight: 550 !important;
+}
+
+.dashboard-main select,
+.admin-main select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  padding-right: 42px !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%234a3028' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 13px center !important;
+  background-size: 16px 16px !important;
+}
+
+.dashboard-main textarea,
+.admin-main textarea {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 92px !important;
+  margin: 0 !important;
+  padding: 11px 12px !important;
+  border: 1px solid #cfd7cf !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  color: var(--av-ink) !important;
+  box-shadow: none !important;
+  outline: none !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  line-height: 1.45 !important;
+  resize: vertical !important;
+}
+
+.dashboard-main input:focus,
+.dashboard-main select:focus,
+.dashboard-main textarea:focus,
+.admin-main input:focus,
+.admin-main select:focus,
+.admin-main textarea:focus {
+  border-color: #7da087 !important;
+  box-shadow: 0 0 0 3px rgba(31,106,59,.09) !important;
+}
+
+.dashboard-main input[type="file"],
+.admin-main input[type="file"] {
+  width: 100% !important;
+  min-height: 43px !important;
+  padding: 7px 9px !important;
+  border: 1px solid #cfd7cf !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+  font-size: 12px !important;
+}
+
+.dashboard-main input[type="checkbox"],
+.dashboard-main input[type="radio"],
+.admin-main input[type="checkbox"],
+.admin-main input[type="radio"] {
+  appearance: auto !important;
+  width: 16px !important;
+  height: 16px !important;
+  min-width: 16px !important;
+  min-height: 16px !important;
+  flex: 0 0 16px !important;
+  margin: 0 !important;
+  accent-color: var(--av-green) !important;
+}
+
+/* ---------- reusable cards ---------- */
+.dashboard-grid article,
+.dashboard-cards button,
+.activation-grid article,
+.provider-grid article,
+.badge-grid article,
+.post-adoption-stats article,
+.lost-found-stats article,
+.rescue-stats article,
+.crm-stats article,
+.admin-stats article,
+.admin-summary > article,
+.settings-card,
+.trust-card,
+.form-section,
+.lost-found-section,
+.lost-found-form,
+.rescue-report-form,
+.foster-profile-form,
+.foster-profile-summary,
+.refund-form,
+.compatibility-disclaimer,
+.admin-panel,
+.admin-detail,
+.database-browser {
+  border: 1px solid var(--av-line) !important;
+  border-radius: 14px !important;
+  background: var(--av-card) !important;
+  box-shadow: none !important;
+}
+
+/* ---------- Today ---------- */
+.dashboard-cards {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 12px !important;
+  margin: 0 0 16px !important;
+}
+
+.dashboard-cards button {
+  min-height: 112px !important;
+  padding: 15px 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.dashboard-cards span {
+  color: #785e52 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+}
+
+.dashboard-cards b {
+  margin: 8px 0 5px !important;
+  font-size: 24px !important;
+  line-height: 1 !important;
+}
+
+.dashboard-cards small {
+  color: var(--av-orange) !important;
+  font-size: 10.5px !important;
+  font-weight: 750 !important;
+}
+
+.dashboard-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 14px !important;
+  margin: 0 !important;
+}
+
+.dashboard-grid article {
+  min-height: 180px !important;
+  padding: 24px !important;
+}
+
+.dashboard-grid article h2 { margin: 6px 0 6px !important; }
+.dashboard-grid article p { margin: 0 0 14px !important; max-width: 680px !important; }
+
+/* ---------- profile + pet forms ---------- */
+.dashboard-form {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 14px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.dashboard-form.compact { margin-top: 16px !important; }
+
+.draft-status {
+  margin: 0 !important;
+  padding: 10px 12px !important;
+  border: 1px solid #cbdacb !important;
+  border-radius: 9px !important;
+  background: #f0f6f1 !important;
+  color: #41644a !important;
+  font-size: 11px !important;
+}
+
+.form-section {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  display: grid !important;
+  grid-template-columns: 42px minmax(0,1fr) !important;
+  gap: 16px !important;
+}
+
+.form-section > span {
+  width: 38px !important;
+  height: 38px !important;
+  margin: 0 !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: #f4e8cf !important;
+  color: #503329 !important;
+  font-size: 14px !important;
+  font-weight: 800 !important;
+}
+
+.form-section > div { width: 100% !important; min-width: 0 !important; }
+.form-section h2 { margin: 0 0 14px !important; font-size: 21px !important; }
+.form-section h2 + p { margin: -7px 0 16px !important; }
+.form-section .primary { margin-top: 14px !important; }
+
+.dashboard-main .form-grid,
+.admin-main .form-grid,
+.admin-inline-form,
+.commerce-form,
+.admin-weight-form,
+.trust-form,
+.refund-form,
+.checkin-form,
+.support-request-form,
+.safe-return-form,
+.journey-event-form,
+.crm-event-form,
+.crm-intake,
+.crm-lost-found-form {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+  gap: 14px 18px !important;
+  align-items: start !important;
+}
+
+.dashboard-main .form-grid .wide,
+.admin-main .form-grid .wide,
+.checkin-form .wide,
+.support-request-form .wide,
+.safe-return-form .wide,
+.trust-form .wide,
+.crm-lost-found-form .wide {
+  grid-column: 1 / -1 !important;
+}
+
+.dashboard-main fieldset,
+.admin-main fieldset {
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 13px 14px !important;
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  gap: 10px 18px !important;
+  border: 1px solid var(--av-warm-line) !important;
+  border-radius: 10px !important;
+  background: #fffdfa !important;
+}
+
+.dashboard-main fieldset legend,
+.admin-main fieldset legend {
+  padding: 0 5px !important;
+  color: #2d302d !important;
+  font-size: 12px !important;
+  font-weight: 750 !important;
+}
+
+.dashboard-main fieldset label,
+.admin-main fieldset label,
+.dashboard-main .check-option,
+.admin-main .check-option,
+.dashboard-main .crm-check {
+  width: auto !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 7px !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+}
+
+/* ---------- generic record rows; excludes special match cards ---------- */
+.record-list:not(.match-results),
+.document-list,
+.notification-list,
+.workflow-list,
+.return-case-list,
+.support-case-list,
+.journey-timeline,
+.crm-timeline,
+.trust-history,
+.decision-list,
+.signal-list {
+  width: 100% !important;
+  display: grid !important;
+  gap: 10px !important;
+}
+
+.record-list:not(.match-results) > article,
+.document-list > article,
+.notification-list > article,
+.workflow-list > article,
+.return-case-list > article,
+.support-case-list > article,
+.journey-timeline > article,
+.crm-timeline > article,
+.trust-history > article,
+.decision-list > article,
+.signal-list > article {
+  min-width: 0 !important;
+  padding: 15px 16px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.record-list:not(.match-results) > article {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) auto !important;
+  gap: 14px !important;
+  align-items: center !important;
+}
+
+.record-list:not(.match-results) > article > div:first-child {
+  display: grid !important;
+  gap: 3px !important;
+}
+
+.record-list:not(.match-results) > article p {
+  grid-column: 1 / -1 !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+.record-list code { font-size: 10px !important; color: var(--av-muted) !important; }
+.record-list small { color: var(--av-muted) !important; }
+
+.record-empty,
+.chat-empty,
+.match-empty,
+.post-adoption-empty {
+  width: 100% !important;
+  min-height: 150px !important;
+  margin: 0 !important;
+  padding: 24px !important;
+  display: grid !important;
+  place-items: center !important;
+  align-content: center !important;
+  gap: 7px !important;
+  border: 1px dashed #cbd2ca !important;
+  border-radius: 12px !important;
+  background: #fcfcf9 !important;
+  color: var(--av-muted) !important;
+  text-align: center !important;
+}
+
+.record-empty p,
+.chat-empty p,
+.match-empty p,
+.post-adoption-empty p {
+  margin: 0 !important;
+  max-width: 760px !important;
+}
+
+/* ---------- Pet Fit Guide ---------- */
+.fit-guide {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 17px !important;
+  background: #fff !important;
+  box-shadow: var(--av-shadow) !important;
+}
+
+.fit-intro {
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  gap: 7px !important;
+}
+
+.fit-intro h2 {
+  max-width: 760px !important;
+  margin: 0 !important;
+  font-size: 28px !important;
+  line-height: 1.13 !important;
+}
+
+.fit-intro p { max-width: 820px !important; margin: 0 !important; }
+
+.fit-progress {
+  width: 100% !important;
+  height: 5px !important;
+  margin: 18px 0 16px !important;
+  border-radius: 999px !important;
+  background: #e8e0d4 !important;
+  overflow: hidden !important;
+}
+
+.fit-progress span { height: 100% !important; display: block !important; }
+
+.fit-question {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  border: 1px solid var(--av-warm-line) !important;
+  border-radius: 14px !important;
+  background: #fff !important;
+}
+
+.fit-question > span {
+  display: block !important;
+  margin-bottom: 5px !important;
+  color: #9a7100 !important;
+  font-size: 9px !important;
+  font-weight: 850 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase !important;
+}
+
+.fit-question h3 { margin: 0 0 3px !important; font-size: 20px !important; }
+.fit-question > p { margin: 0 0 12px !important; }
+
+.fit-city {
+  width: min(100%, 340px) !important;
+  margin-bottom: 14px !important;
+  display: grid !important;
+  gap: 6px !important;
+}
+
+.fit-options {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 9px !important;
+}
+
+.fit-options button {
+  width: 100% !important;
+  min-height: 72px !important;
+  padding: 13px 15px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 5px !important;
+  border: 1px solid var(--av-warm-line) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+  text-align: left !important;
+}
+
+.fit-options button.selected {
+  border-color: #d4b33e !important;
+  background: #fff9e9 !important;
+}
+
+.fit-options button b { font-size: 13px !important; }
+.fit-options button em { color: #956d00 !important; font-size: 10px !important; font-style: normal !important; font-weight: 800 !important; }
+
+.fit-secondary {
+  width: 100% !important;
+  margin-top: 12px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  gap: 12px !important;
+}
+
+.fit-actions {
+  width: 100% !important;
+  margin-top: 14px !important;
+  justify-content: space-between !important;
+}
+
+.fit-note {
+  width: 100% !important;
+  margin-top: 8px !important;
+  padding: 9px 11px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 9px !important;
+  background: var(--av-soft) !important;
+  font-size: 11.5px !important;
+}
+
+/* ---------- saved pets ---------- */
+.saved-pets-grid {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap: 12px !important;
+}
+
+.saved-pets-grid > article {
+  min-width: 0 !important;
+  overflow: hidden !important;
+  display: grid !important;
+  grid-template-columns: 120px minmax(0,1fr) !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.saved-pets-grid > article > img {
+  width: 120px !important;
+  height: 100% !important;
+  min-height: 150px !important;
+  object-fit: cover !important;
+}
+
+.saved-pets-grid > article > div { padding: 14px !important; }
+.saved-pets-grid > article > div > div { margin-top: 10px !important; display: flex !important; gap: 8px !important; flex-wrap: wrap !important; }
+
+/* ---------- Best Matches ---------- */
+.match-results {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.match-results > article {
+  min-width: 0 !important;
+  min-height: 190px !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+  gap: 11px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  box-shadow: none !important;
+}
+
+.match-results > article > div:first-child {
+  display: grid !important;
+  gap: 4px !important;
+}
+
+.match-results > article > div:first-child b { font-size: 14px !important; }
+.match-results > article > div:first-child small { color: var(--av-muted) !important; font-size: 11px !important; }
+
+.match-results > article > p {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  flex: 1 1 auto !important;
+  color: var(--av-muted) !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+
+.match-results > article > button {
+  width: fit-content !important;
+  max-width: 100% !important;
+  margin-top: auto !important;
+  align-self: flex-start !important;
+}
+
+.match-results > .match-empty {
+  grid-column: 1 / -1 !important;
+  min-height: 230px !important;
+}
+
+.match-empty > span,
+.post-adoption-empty > span {
+  width: 48px !important;
+  height: 48px !important;
+  display: grid !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: #fbf5e9 !important;
+  color: var(--av-orange) !important;
+  font-size: 24px !important;
+}
+
+.match-empty h3,
+.post-adoption-empty h3 { font-size: 18px !important; }
+
+/* ---------- activation / payment ---------- */
+.activation-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3,minmax(0,1fr)) !important;
+  gap: 12px !important;
+  margin-bottom: 16px !important;
+}
+
+.activation-grid article {
+  min-height: 250px !important;
+  padding: 19px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.activation-grid article > span { color: #906a00 !important; font-size: 9.5px !important; font-weight: 850 !important; letter-spacing: .09em !important; }
+.activation-grid article h3 { margin: 7px 0 7px !important; font-size: 18px !important; }
+.activation-grid article p { margin: 0 !important; }
+.activation-grid article > b { margin: 12px 0 !important; font-size: 27px !important; }
+.activation-grid article > div { margin-top: auto !important; display: flex !important; gap: 8px !important; flex-wrap: wrap !important; }
+
+.payment-history { margin-top: 18px !important; }
+.document-list { grid-template-columns: repeat(auto-fit,minmax(240px,1fr)) !important; }
+.refund-form { padding: 16px !important; margin-top: 12px !important; }
+
+/* ---------- adopter candidates ---------- */
+.candidate-list {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap: 12px !important;
+}
+
+.candidate-list > article {
+  min-width: 0 !important;
+  padding: 15px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+}
+
+.candidate-list > .record-empty { grid-column: 1 / -1 !important; min-height: 210px !important; }
+
+/* ---------- activity / workflow ---------- */
+.workflow-list > article {
+  display: grid !important;
+  gap: 11px !important;
+}
+
+.workflow-title {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+
+.workflow-actions { margin-top: 2px !important; }
+.workflow-help { margin: 0 !important; }
+
+/* ---------- Messages ---------- */
+.chat-layout {
+  width: 100% !important;
+  min-height: 360px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: 260px minmax(0,1fr) !important;
+  gap: 12px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.chat-layout > aside,
+.chat-window {
+  min-width: 0 !important;
+  min-height: 360px !important;
+  padding: 14px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.chat-layout > aside {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
+}
+
+.chat-layout > aside button {
+  width: 100% !important;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  background: #faf7f1 !important;
+}
+
+.chat-layout > aside button.active { background: #edf5ef !important; border-color: #bdcfbf !important; }
+.chat-layout > aside small { display: block !important; margin-top: 3px !important; color: var(--av-muted) !important; font-size: 10px !important; }
+
+.chat-window {
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.chat-window > .chat-empty {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+}
+
+.chat-messages {
+  flex: 1 1 auto !important;
+  max-height: 420px !important;
+  overflow-y: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+}
+
+.chat-messages article {
+  max-width: 78% !important;
+  padding: 10px 12px !important;
+  border-radius: 10px !important;
+  background: #f7f3ea !important;
+}
+
+.chat-window form {
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid var(--av-line) !important;
+}
+
+.chat-window form textarea { margin: 6px 0 9px !important; }
+
+/* ---------- journey ---------- */
+.journey-workspace {
+  width: 100% !important;
+  min-height: 420px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: 250px minmax(0,1fr) !important;
+  gap: 12px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.journey-workspace > aside,
+.journey-workspace > section {
+  min-width: 0 !important;
+  padding: 16px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.journey-workspace > aside { display: flex !important; flex-direction: column !important; gap: 7px !important; }
+.journey-workspace > aside button { width: 100% !important; justify-content: flex-start !important; text-align: left !important; background: #faf7f1 !important; }
+.journey-workspace > aside button.active { background: #edf5ef !important; border-color: #bdcfbf !important; }
+.journey-event-form { margin-top: 12px !important; padding: 15px !important; border-radius: 11px !important; background: #faf8f3 !important; }
+.journey-event-form h3,
+.journey-event-form button { grid-column: 1 / -1 !important; }
+
+/* ---------- After adoption ---------- */
+.post-adoption {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 17px !important;
+  background: #fff !important;
+  box-shadow: var(--av-shadow) !important;
+}
+
+.post-adoption-stats {
+  display: grid !important;
+  grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  gap: 10px !important;
+  margin: 0 0 14px !important;
+}
+
+.post-adoption-stats article { min-height: 105px !important; padding: 15px !important; }
+.post-adoption-stats span { color: #745f56 !important; font-size: 9.5px !important; font-weight: 800 !important; letter-spacing: .06em !important; }
+.post-adoption-stats b { display: block !important; margin: 8px 0 5px !important; font-size: 25px !important; }
+.post-adoption-stats small { color: var(--av-muted) !important; font-size: 10.5px !important; }
+.post-adoption-empty { min-height: 190px !important; }
+
+.post-adoption-layout {
+  display: grid !important;
+  grid-template-columns: 235px minmax(0,1fr) !important;
+  gap: 12px !important;
+}
+
+.post-adoption-layout > aside,
+.post-adoption-layout > section {
+  min-width: 0 !important;
+  padding: 16px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.post-adoption-tabs { display: grid !important; gap: 5px !important; margin-top: 12px !important; padding-top: 12px !important; border-top: 1px solid var(--av-line) !important; }
+.post-adoption-tabs button { width: 100% !important; justify-content: flex-start !important; }
+
+/* ---------- lost & found ---------- */
+.lost-found-network,
+.rescue-network,
+.foster-network,
+.trust-centre,
+.communication-settings {
+  width: 100% !important;
+  display: grid !important;
+  gap: 16px !important;
+}
+
+.lost-found-form,
+.rescue-report-form,
+.foster-profile-form { padding: 20px !important; }
+
+.lost-found-stats,
+.rescue-stats,
+.crm-stats,
+.trust-ops-stats,
+.outcome-analytics,
+.admin-stats {
+  display: grid !important;
+  grid-template-columns: repeat(4,minmax(0,1fr)) !important;
+  gap: 10px !important;
+}
+
+.lost-found-stats article,
+.rescue-stats article,
+.crm-stats article,
+.trust-ops-stats article,
+.outcome-analytics article,
+.admin-stats article {
+  min-height: 100px !important;
+  padding: 15px !important;
+}
+
+.lost-found-stats span,
+.rescue-stats span,
+.crm-stats span,
+.trust-ops-stats span,
+.outcome-analytics span,
+.admin-stats span {
+  color: #765f55 !important;
+  font-size: 9.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+}
+
+.lost-found-stats b,
+.rescue-stats b,
+.crm-stats b,
+.trust-ops-stats b,
+.outcome-analytics b,
+.admin-stats b {
+  display: block !important;
+  margin-top: 8px !important;
+  font-size: 25px !important;
+}
+
+.lost-found-section { padding: 18px !important; }
+
+.lost-found-report-grid,
+.lost-found-community-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap: 11px !important;
+}
+
+.lost-found-report-grid > article,
+.lost-found-community-grid > article,
+.lost-found-match {
+  min-width: 0 !important;
+  padding: 14px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+}
+
+.lost-found-match-list { display: grid !important; gap: 10px !important; }
+.lost-found-match { display: grid !important; grid-template-columns: 120px minmax(0,1fr) !important; gap: 14px !important; }
+.lost-found-photos { display: grid !important; grid-template-columns: repeat(auto-fit,minmax(120px,1fr)) !important; gap: 7px !important; margin-top: 9px !important; }
+.lost-found-photos img { width: 100% !important; height: 120px !important; object-fit: cover !important; border-radius: 8px !important; }
+
+/* ---------- rescue ---------- */
+.rescue-layout {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) 320px !important;
+  gap: 14px !important;
+  align-items: start !important;
+}
+
+.rescue-case-list,
+.rescue-resources { min-width: 0 !important; }
+.rescue-case-list { display: grid !important; gap: 10px !important; }
+.rescue-case-list > h3 { margin-bottom: 0 !important; }
+.rescue-case-list > .record-empty { min-height: 170px !important; }
+
+.rescue-case {
+  padding: 16px !important;
+  border: 1px solid var(--av-line) !important;
+  border-left: 4px solid #d1b154 !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+}
+
+.rescue-resources {
+  position: sticky !important;
+  top: 18px !important;
+  padding: 17px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+}
+
+.rescue-resources > p { margin: 8px 0 10px !important; }
+.rescue-resources article { padding: 11px 0 !important; border-top: 1px solid var(--av-line) !important; }
+.rescue-resources article b { font-size: 12.5px !important; }
+.rescue-resources article small { display: block !important; margin-top: 4px !important; color: var(--av-muted) !important; }
+.rescue-resources > a { width: 100% !important; margin-top: 10px !important; }
+
+.rescue-photos { display: grid !important; grid-template-columns: repeat(auto-fit,minmax(130px,1fr)) !important; gap: 7px !important; }
+.rescue-photos img { width: 100% !important; height: 125px !important; object-fit: cover !important; border-radius: 8px !important; }
+
+/* ---------- foster ---------- */
+.foster-profile-summary {
+  padding: 17px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+}
+
+.foster-profile-summary span { color: #956e00 !important; font-size: 9px !important; font-weight: 800 !important; letter-spacing: .08em !important; }
+.foster-profile-summary h3 { margin: 5px 0 3px !important; font-size: 18px !important; }
+.foster-profile-summary p { margin: 0 !important; }
+
+.foster-invite {
+  padding: 15px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  border: 1px solid #e2c978 !important;
+  border-radius: 11px !important;
+  background: #fff8dc !important;
+}
+
+.foster-invite > div:last-child { display: flex !important; gap: 8px !important; flex-wrap: wrap !important; }
+
+.foster-opportunities {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr)) !important;
+  gap: 11px !important;
+}
+
+.foster-opportunities > h3,
+.foster-opportunities > .record-empty {
+  grid-column: 1 / -1 !important;
+}
+
+.foster-opportunities > h3 { margin: 4px 0 0 !important; }
+.foster-opportunities > .record-empty { min-height: 170px !important; }
+
+.foster-opportunities > article {
+  min-width: 0 !important;
+  padding: 15px !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 11px !important;
+  background: #fff !important;
+}
+
+.foster-opportunities > article > div { flex: 1 1 auto !important; }
+.foster-opportunities > article > button,
+.foster-opportunities > article > em { flex: 0 0 auto !important; }
+
+.foster-candidates,
+.foster-offers {
+  margin-top: 10px !important;
+  padding: 12px !important;
+  border-radius: 9px !important;
+  background: #faf7f1 !important;
+}
+
+/* ---------- compatibility ---------- */
+.compatibility-hero {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: 170px minmax(0,1fr) auto !important;
+  gap: 16px !important;
+  align-items: center !important;
+  padding: 18px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 13px !important;
+  background: #fff !important;
+}
+
+.compatibility-hero > img,
+.compatibility-photo { width: 170px !important; height: 135px !important; object-fit: cover !important; border-radius: 10px !important; }
+.compatibility-grid { display: grid !important; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)) !important; gap: 10px !important; }
+.compatibility-grid article { padding: 14px !important; border: 1px solid var(--av-line) !important; border-radius: 10px !important; background: #fff !important; }
+.compatibility-disclaimer { margin-top: 12px !important; padding: 13px !important; }
+
+/* ---------- CRM Manage ---------- */
+.crm-head-actions { flex: 0 0 auto !important; justify-content: flex-end !important; }
+.crm-head-actions select { width: 230px !important; }
+
+.crm-stats { margin-bottom: 14px !important; }
+
+.crm-workspace {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: grid !important;
+  grid-template-columns: 300px minmax(0,1fr) !important;
+  gap: 12px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.crm-workspace > aside,
+.crm-workspace > section {
+  min-width: 0 !important;
+  padding: 16px !important;
+  border: 1px solid var(--av-warm-line) !important;
+  border-radius: 12px !important;
+  background: #fff !important;
+  overflow: hidden !important;
+}
+
+.crm-workspace > aside { display: grid !important; gap: 16px !important; align-content: start !important; }
+.crm-location h3,
+.crm-animal-list h3,
+.crm-timeline h3 { margin-bottom: 8px !important; }
+
+.crm-location > div {
+  padding: 7px 0 !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 9px !important;
+  border-top: 1px solid #eee4d7 !important;
+}
+
+.crm-location > div span { flex: 1 1 auto !important; overflow-wrap: anywhere !important; }
+
+.crm-animal-list { width: 100% !important; display: grid !important; gap: 7px !important; }
+.crm-animal-list button { width: 100% !important; padding: 10px 11px !important; display: grid !important; grid-template-columns: 1fr !important; gap: 3px !important; justify-items: start !important; overflow: hidden !important; text-align: left !important; }
+.crm-animal-list button b,
+.crm-animal-list button small { width: 100% !important; display: block !important; white-space: normal !important; overflow-wrap: anywhere !important; word-break: break-word !important; }
+.crm-animal-list button b { font-size: 12.5px !important; }
+.crm-animal-list button small { color: var(--av-muted) !important; font-size: 10px !important; }
+.crm-animal-list button.active { background: #eef5ef !important; border-color: #bcd0bf !important; }
+
+.crm-animal-head {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  margin-bottom: 13px !important;
+  padding-bottom: 13px !important;
+  border-bottom: 1px solid #ebdfd2 !important;
+}
+
+.crm-animal-head > div { flex: 1 1 auto !important; }
+.crm-animal-head em { flex: 0 0 auto !important; max-width: 220px !important; padding: 6px 9px !important; border-radius: 999px !important; background: #faf4e5 !important; font-size: 9.5px !important; font-style: normal !important; }
+.crm-lost-found-form { padding: 14px !important; margin-bottom: 13px !important; border: 1px solid #e9d497 !important; border-radius: 10px !important; background: #fff9e7 !important; }
+.crm-timeline article { display: grid !important; grid-template-columns: minmax(0,1fr) auto !important; gap: 10px !important; align-items: start !important; }
+
+/* ---------- Trust / Settings ---------- */
+.trust-card { padding: 18px !important; }
+.trust-form { margin-top: 12px !important; }
+.trust-history { margin-top: 12px !important; }
+
+.settings-card {
+  width: 100% !important;
+  padding: 18px !important;
+  display: grid !important;
+  grid-template-columns: minmax(220px,.9fr) minmax(300px,1.1fr) !important;
+  gap: 18px !important;
+  align-items: end !important;
+}
+
+.settings-card > div:first-child { align-self: start !important; }
+.settings-card > div:first-child h3 { margin: 5px 0 5px !important; }
+.settings-card form { display: flex !important; align-items: end !important; gap: 8px !important; flex-wrap: wrap !important; }
+
+.preference-form {
+  grid-template-columns: minmax(260px,1fr) repeat(3,minmax(110px,.35fr)) auto !important;
+  align-items: center !important;
+}
+
+.preference-form > label {
+  min-height: 43px !important;
+  padding: 9px 10px !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 7px !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+}
+
+.provider-grid,
+.badge-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(230px,1fr)) !important;
+  gap: 11px !important;
+}
+
+.provider-grid article,
+.badge-grid article { min-height: 150px !important; padding: 15px !important; }
+.provider-grid article h3,
+.badge-grid article h3 { margin: 7px 0 5px !important; }
+.provider-grid article p,
+.badge-grid article p { margin: 0 !important; }
+
+/* ---------- Directory corrections ---------- */
+.dashboard-form .dashboard-section-head { margin-bottom: 0 !important; }
+.dashboard-form .dashboard-section-head + .dashboard-notice { margin-bottom: 0 !important; }
+
+/* ---------- Admin ---------- */
+.admin-summary {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr)) !important;
+  gap: 12px !important;
+}
+
+.admin-summary > article { padding: 17px !important; }
+.admin-panel,
+.admin-detail { padding: 18px !important; }
+
+.admin-detail-head {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  flex-wrap: wrap !important;
+}
+
+.admin-table-wrap,
+.db-table-wrap,
+.stats-table {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+  border: 1px solid var(--av-line) !important;
+  border-radius: 10px !important;
+  background: #fff !important;
+}
+
+.admin-table-wrap table,
+.db-table-wrap table,
+.stats-table table {
+  width: 100% !important;
+  min-width: 720px !important;
+  border-collapse: collapse !important;
+  table-layout: auto !important;
+}
+
+.admin-table-wrap th,
+.admin-table-wrap td,
+.db-table-wrap th,
+.db-table-wrap td,
+.stats-table th,
+.stats-table td {
+  padding: 10px 11px !important;
+  border-bottom: 1px solid #ecece6 !important;
+  vertical-align: top !important;
+  text-align: left !important;
+  font-size: 11.5px !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+.admin-table-wrap th,
+.db-table-wrap th,
+.stats-table th {
+  background: #fafaf7 !important;
+  color: #5f625c !important;
+  font-size: 9.5px !important;
+  font-weight: 800 !important;
+  letter-spacing: .05em !important;
+  text-transform: uppercase !important;
+}
+
+.database-browser { overflow: hidden !important; }
+.db-header,
+.db-top,
+.db-controls,
+.db-pagination {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 9px !important;
+  flex-wrap: wrap !important;
+}
+.db-tabs { display: flex !important; gap: 6px !important; flex-wrap: wrap !important; }
+.db-browser { display: grid !important; grid-template-columns: 210px minmax(0,1fr) !important; }
+.db-sidebar { padding: 13px !important; border-right: 1px solid var(--av-line) !important; }
+.db-content { padding: 15px !important; }
+
+/* ---------- 1200 ---------- */
+@media (max-width: 1200px) and (min-width: 901px) {
+  :root { --av-side: 252px; }
+  .dashboard-main,
+  .admin-main { padding: 20px 20px 48px !important; }
+  .dashboard-sidebar nav button,
+  .admin-sidebar nav button { font-size: 12px !important; }
+  .match-results { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .activation-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .crm-workspace { grid-template-columns: 260px minmax(0,1fr) !important; }
+  .settings-card { grid-template-columns: 1fr !important; }
+  .preference-form { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .preference-form > div:first-child { grid-column: 1 / -1 !important; }
+}
+
+/* ---------- tablet/mobile sidebar ---------- */
+@media (max-width: 900px) {
+  .dashboard-shell,
+  .admin-shell { display: block !important; }
+
+  .dashboard-sidebar,
+  .admin-sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    left: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 8px 12px 9px !important;
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) auto !important;
+    gap: 7px 10px !important;
+    background: var(--av-brown) !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    filter: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: hidden !important;
+    z-index: 100 !important;
+  }
+
+  .dashboard-brand,
+  .admin-brand {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 !important;
+  }
+
+  .dashboard-brand .dogsvilla-mark,
+  .admin-brand .dogsvilla-mark { width: 34px !important; height: 30px !important; flex-basis: 34px !important; }
+  .dashboard-brand b,
+  .admin-brand b { font-size: 13px !important; }
+  .dashboard-brand small,
+  .admin-brand small { font-size: 7.5px !important; }
+
+  .dashboard-sidebar nav,
+  .admin-sidebar nav {
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 6px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 !important;
+    scrollbar-width: none !important;
+  }
+
+  .dashboard-sidebar nav button,
+  .admin-sidebar nav button {
+    width: auto !important;
+    min-width: max-content !important;
+    min-height: 34px !important;
+    padding: 7px 10px !important;
+    white-space: nowrap !important;
+    font-size: 11.5px !important;
+  }
+
+  .dashboard-admin-link { display: none !important; }
+  .dashboard-signout,
+  .admin-account {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    width: auto !important;
+    min-height: 34px !important;
+    padding: 6px 10px !important;
+  }
+
+  .admin-account b,
+  .admin-account small { display: none !important; }
+
+  .dashboard-main,
+  .admin-main {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 16px 16px 44px !important;
+  }
+
+  .dashboard-top,
+  .admin-top {
+    min-height: 0 !important;
+    padding: 18px !important;
+    margin-bottom: 16px !important;
+  }
+
+  .account-chip,
+  .admin-live { display: none !important; }
+
+  .dashboard-main h1,
+  .admin-main h1 { font-size: 27px !important; }
+
+  .dashboard-main h2,
+  .admin-main h2 { font-size: 21px !important; }
+
+  .dashboard-section-head,
+  .admin-panel-head,
+  .lost-found-section-head,
+  .lost-found-form-head,
+  .post-adoption-heading,
+  .trust-card-head {
+    align-items: flex-start !important;
+  }
+
+  .dashboard-main .form-grid,
+  .admin-main .form-grid,
+  .admin-inline-form,
+  .commerce-form,
+  .admin-weight-form,
+  .trust-form,
+  .refund-form,
+  .checkin-form,
+  .support-request-form,
+  .safe-return-form,
+  .journey-event-form,
+  .crm-event-form,
+  .crm-intake,
+  .crm-lost-found-form {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-main .form-grid .wide,
+  .admin-main .form-grid .wide,
+  .checkin-form .wide,
+  .support-request-form .wide,
+  .safe-return-form .wide,
+  .trust-form .wide,
+  .crm-lost-found-form .wide { grid-column: auto !important; }
+
+  .dashboard-cards { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .dashboard-grid { grid-template-columns: 1fr !important; }
+  .match-results { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .activation-grid { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .post-adoption-stats,
+  .lost-found-stats,
+  .rescue-stats,
+  .crm-stats,
+  .trust-ops-stats,
+  .outcome-analytics,
+  .admin-stats { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+
+  .chat-layout,
+  .journey-workspace,
+  .post-adoption-layout,
+  .crm-workspace,
+  .rescue-layout,
+  .db-browser { grid-template-columns: 1fr !important; }
+
+  .chat-layout { min-height: 0 !important; }
+  .chat-layout > aside,
+  .chat-window { min-height: 0 !important; }
+  .chat-layout > aside,
+  .journey-workspace > aside,
+  .post-adoption-layout > aside {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    max-height: none !important;
+  }
+
+  .post-adoption-tabs { grid-column: 1 / -1 !important; }
+  .rescue-resources { position: static !important; }
+  .crm-head-actions { width: 100% !important; justify-content: flex-start !important; }
+  .crm-head-actions select { width: min(100%,320px) !important; }
+  .settings-card { grid-template-columns: 1fr !important; }
+  .preference-form { grid-template-columns: repeat(2,minmax(0,1fr)) !important; }
+  .preference-form > div:first-child { grid-column: 1 / -1 !important; }
+  .compatibility-hero { grid-template-columns: 130px minmax(0,1fr) !important; }
+  .compatibility-hero > *:last-child { grid-column: 1 / -1 !important; }
+}
+
+/* ---------- phones ---------- */
+@media (max-width: 640px) {
+  .dashboard-main,
+  .admin-main { padding: 12px 12px 36px !important; }
+
+  .dashboard-top,
+  .admin-top { padding: 15px !important; border-radius: 13px !important; }
+  .dashboard-main h1,
+  .admin-main h1 { font-size: 24px !important; }
+  .dashboard-main h2,
+  .admin-main h2 { font-size: 19px !important; }
+  .dashboard-main h3,
+  .admin-main h3 { font-size: 16px !important; }
+
+  .dashboard-section-head,
+  .admin-panel-head,
+  .lost-found-section-head,
+  .lost-found-form-head,
+  .post-adoption-heading,
+  .trust-card-head {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-section-head > *,
+  .admin-panel-head > *,
+  .lost-found-section-head > *,
+  .lost-found-form-head > *,
+  .post-adoption-heading > *,
+  .trust-card-head > * { max-width: 100% !important; }
+
+  .dashboard-section-head > button,
+  .dashboard-section-head > a,
+  .lost-found-head-actions,
+  .rescue-head-actions,
+  .crm-head-actions { justify-self: stretch !important; width: 100% !important; }
+
+  .lost-found-head-actions > *,
+  .rescue-head-actions > *,
+  .crm-head-actions > * { width: 100% !important; }
+
+  .dashboard-cards,
+  .match-results,
+  .activation-grid,
+  .post-adoption-stats,
+  .lost-found-stats,
+  .rescue-stats,
+  .crm-stats,
+  .trust-ops-stats,
+  .outcome-analytics,
+  .admin-stats,
+  .saved-pets-grid,
+  .candidate-list,
+  .provider-grid,
+  .badge-grid,
+  .admin-summary,
+  .fit-options,
+  .fit-secondary,
+  .preference-form { grid-template-columns: 1fr !important; }
+
+  .form-section {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+  }
+
+  .form-section > span { width: 34px !important; height: 34px !important; }
+
+  .dashboard-main fieldset,
+  .admin-main fieldset {
+    align-items: flex-start !important;
+    flex-direction: column !important;
+  }
+
+  .fit-guide,
+  .fit-question,
+  .post-adoption,
+  .trust-card,
+  .settings-card,
+  .lost-found-section,
+  .lost-found-form,
+  .rescue-report-form,
+  .foster-profile-form,
+  .admin-panel,
+  .admin-detail { padding: 15px !important; }
+
+  .fit-intro h2 { font-size: 23px !important; }
+  .fit-actions { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+  .fit-actions button { width: 100% !important; }
+
+  .saved-pets-grid > article { grid-template-columns: 1fr !important; }
+  .saved-pets-grid > article > img { width: 100% !important; height: 180px !important; }
+
+  .chat-layout > aside,
+  .journey-workspace > aside,
+  .post-adoption-layout > aside { grid-template-columns: 1fr !important; }
+
+  .lost-found-match { grid-template-columns: 1fr !important; }
+  .foster-profile-summary,
+  .foster-invite,
+  .foster-opportunities > article,
+  .crm-animal-head { display: grid !important; grid-template-columns: 1fr !important; }
+
+  .compatibility-hero { grid-template-columns: 1fr !important; }
+  .compatibility-hero > img,
+  .compatibility-photo { width: 100% !important; height: 190px !important; }
+
+  .workflow-title { display: grid !important; grid-template-columns: 1fr !important; }
+  .record-list:not(.match-results) > article { grid-template-columns: 1fr !important; }
+  .record-list:not(.match-results) > article > code { justify-self: start !important; }
+}
+/* =========================================================
+   PET FIT GUIDE - CITY GAP + CHOOSE LABEL FIX
+   ========================================================= */
+
+/* City field ke neeche proper gap */
+.fit-city {
+  width: 100% !important;
+  max-width: 400px !important;
+
+  display: grid !important;
+  gap: 7px !important;
+
+  margin: 0 0 18px !important;
+}
+
+/* City input */
+.fit-city input {
+  width: 100% !important;
+  height: 46px !important;
+
+  padding: 0 14px !important;
+
+  border: 1px solid #cfd8cf !important;
+  border-radius: 10px !important;
+
+  background: #ffffff !important;
+
+  font-size: 14px !important;
+  font-weight: 600 !important;
+
+  box-shadow: none !important;
+}
+
+
+/* Dog / Cat / Rabbit / Bird cards */
+.fit-options {
+  width: 100% !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  gap: 12px !important;
+
+  margin-top: 0 !important;
+}
+
+
+/* Individual option card */
+.fit-options button {
+  width: 100% !important;
+  min-width: 0 !important;
+
+  min-height: 88px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  align-items: flex-start !important;
+  justify-content: center !important;
+
+  gap: 9px !important;
+
+  padding: 16px 18px !important;
+
+  border: 1px solid #e4d7c5 !important;
+  border-radius: 12px !important;
+
+  background: #ffffff !important;
+
+  text-align: left !important;
+
+  transition:
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.18s ease !important;
+}
+
+
+/* Hover */
+.fit-options button:hover {
+  border-color: #d7bb6c !important;
+  background: #fffaf0 !important;
+
+  transform: translateY(-1px) !important;
+}
+
+
+/* Dog / Cat heading */
+.fit-options button b {
+  display: block !important;
+
+  margin: 0 !important;
+
+  font-size: 15px !important;
+  line-height: 1.25 !important;
+
+  font-weight: 750 !important;
+
+  color: #2d201a !important;
+}
+
+
+/* CHOOSE ko proper small CTA bana do */
+.fit-options button em {
+  display: inline-flex !important;
+
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: auto !important;
+  min-height: 26px !important;
+
+  margin: 0 !important;
+
+  padding: 5px 10px !important;
+
+  border-radius: 999px !important;
+
+  background: #f7edcf !important;
+  color: #8e6500 !important;
+
+  font-size: 11px !important;
+  line-height: 1 !important;
+
+  font-style: normal !important;
+  font-weight: 800 !important;
+
+  letter-spacing: 0.01em !important;
+}
+
+
+/* Selected card */
+.fit-options button.selected {
+  border-color: #d7ad34 !important;
+  background: #fff8e5 !important;
+}
+
+
+/* Selected label */
+.fit-options button.selected em {
+  background: #e5b928 !important;
+  color: #2d201a !important;
+}
+
+
+/* Open to recommendations card spacing */
+.fit-options button:last-child {
+  margin-top: 0 !important;
+}
+
+
+/* Mobile */
+@media (max-width: 640px) {
+
+  .fit-city {
+    max-width: 100% !important;
+
+    margin-bottom: 16px !important;
+  }
+
+  .fit-options {
+    grid-template-columns: 1fr !important;
+
+    gap: 10px !important;
+  }
+
+  .fit-options button {
+    min-height: 78px !important;
+
+    padding: 14px 16px !important;
+  }
+
+  .fit-options button b {
+    font-size: 14px !important;
+  }
+
+  .fit-options button em {
+    font-size: 10.5px !important;
+
+    padding: 5px 9px !important;
+  }
+}
+/* =========================================================
+   PET FIT GUIDE - CITY INPUT GAP FINAL FIX
+   ========================================================= */
+
+.dashboard-main .fit-question > label.fit-city {
+  width: min(100%, 500px) !important;
+
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+
+  gap: 7px !important;
+
+  /* IMPORTANT: actual physical space after input */
+  margin: 0 !important;
+  padding: 0 0 20px 0 !important;
+}
+
+.dashboard-main .fit-question > label.fit-city input {
+  width: 100% !important;
+
+  height: 46px !important;
+  min-height: 46px !important;
+
+  margin: 0 !important;
+  padding: 0 14px !important;
+
+  border: 1px solid #ccd6cc !important;
+  border-radius: 10px !important;
+
+  background: #fff !important;
+}
+
+
+/* Options input se kabhi chipkenge nahi */
+.dashboard-main .fit-question > .fit-options {
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  clear: both !important;
+}
+
+
+/* Mobile */
+@media (max-width: 640px) {
+
+  .dashboard-main .fit-question > label.fit-city {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-bottom: 16px !important;
+  }
+
+}
+/* =========================================================
+   SIDEBAR SPACING / BREATHING SPACE FIX
+   ========================================================= */
+
+@media (min-width: 861px) {
+
+  /* Sidebar overall spacing */
+  .dashboard-sidebar,
+  .admin-sidebar {
+    padding: 20px 16px 16px !important;
+    gap: 18px !important;
+  }
+
+
+  /* Logo / brand ke neeche thoda extra space */
+  .dashboard-brand,
+  .admin-brand {
+    margin-bottom: 8px !important;
+    padding-bottom: 12px !important;
+  }
+
+
+  /* Menu items ke beech proper gap */
+  .dashboard-sidebar nav,
+  .admin-sidebar nav {
+    gap: 7px !important;
+
+    padding: 0 2px 12px !important;
+
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+
+    scrollbar-width: none !important;
+  }
+
+
+  .dashboard-sidebar nav::-webkit-scrollbar,
+  .admin-sidebar nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+
+  /* Individual nav item */
+  .dashboard-sidebar nav button,
+  .admin-sidebar nav button {
+    min-height: 40px !important;
+
+    padding: 10px 12px !important;
+
+    border-radius: 9px !important;
+
+    font-size: 13px !important;
+    line-height: 1.25 !important;
+  }
+
+
+  /* Active item thoda clean lage */
+  .dashboard-sidebar nav button.active,
+  .admin-sidebar nav button.active {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+
+  /* Sign out ke upar gap */
+  .dashboard-signout,
+  .dashboard-admin-link,
+  .admin-account {
+    margin-top: 8px !important;
+  }
+}
+/* =====================================================
+   ADMIN TABLE & CARD ALIGNMENT FIX
+   ===================================================== */
+
+
+/* Main admin content cards */
+.admin-main .dashboard-card,
+.admin-content .dashboard-card,
+.admin-panel-card {
+    padding: 28px !important;
+    border-radius: 20px !important;
+}
+
+
+/* Section heading spacing */
+.admin-main h2,
+.admin-content h2 {
+    margin-bottom: 8px !important;
+}
+
+
+.admin-main p,
+.admin-content p {
+    margin-bottom: 24px !important;
+}
+
+
+/* Table wrapper */
+.admin-main table,
+.admin-content table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+
+/* Force table container scroll */
+.admin-main .table-wrapper,
+.admin-content .table-wrapper,
+.admin-main .card,
+.admin-content .card {
+    overflow-x: auto !important;
+}
+
+
+/* Table cells */
+.admin-main th,
+.admin-main td,
+.admin-content th,
+.admin-content td {
+
+    padding: 16px 14px !important;
+
+    white-space: nowrap !important;
+
+    vertical-align: middle !important;
+
+}
+
+
+/* Header */
+.admin-main th,
+.admin-content th {
+
+    font-size: 12px !important;
+
+    letter-spacing: .5px !important;
+
+    font-weight: 700 !important;
+
+}
+
+
+/* Body */
+.admin-main td,
+.admin-content td {
+
+    font-size: 14px !important;
+
+}
+
+
+/* Action column fix */
+.admin-main td:last-child,
+.admin-content td:last-child {
+
+    min-width: 170px !important;
+
+}
+
+
+/* Buttons inside table */
+.admin-main td button,
+.admin-content td button {
+
+    height: 42px !important;
+
+    padding: 0 20px !important;
+
+    border-radius: 12px !important;
+
+}
+
+
+/* Dropdown inside table */
+.admin-main td select,
+.admin-content td select {
+
+    width: 100% !important;
+
+    min-width: 160px !important;
+
+    height: 44px !important;
+
+    padding: 0 14px !important;
+
+    border-radius: 12px !important;
+
+}
+
+
+/* Lost found large tables */
+.admin-main table th:nth-child(1),
+.admin-main table td:nth-child(1){
+
+    min-width:120px;
+
+}
+
+
+.admin-main table th:nth-child(2),
+.admin-main table td:nth-child(2){
+
+    min-width:90px;
+
+}
+
+
+.admin-main table th:nth-child(3),
+.admin-main table td:nth-child(3){
+
+    min-width:100px;
+
+}
+
+
+/* Mobile */
+@media(max-width:768px){
+
+    .admin-main .dashboard-card,
+    .admin-content .dashboard-card {
+
+        padding:18px !important;
+
+    }
+
+
+    .admin-main table,
+    .admin-content table {
+
+        min-width:900px !important;
+
+    }
+
+
+}
+/* =========================================================
+   ADMIN TABLES - REAL FINAL ALIGNMENT FIX
+   Targets actual Admin.jsx markup
+   ========================================================= */
+
+
+/* ---------- Admin panel ---------- */
+
+.admin-main .admin-panel {
+  width: 100% !important;
+
+  margin: 0 0 20px !important;
+  padding: 0 !important;
+
+  overflow: hidden !important;
+
+  border: 1px solid #dddcd5 !important;
+  border-radius: 16px !important;
+
+  background: #fff !important;
+
+  box-shadow: 0 10px 28px rgba(50, 39, 26, 0.04) !important;
+}
+
+
+/* Heading area */
+
+.admin-main .admin-panel-head {
+  width: 100% !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+
+  gap: 16px !important;
+
+  margin: 0 !important;
+  padding: 22px 26px 18px !important;
+
+  border-bottom: 1px solid #e8e3da !important;
+}
+
+
+.admin-main .admin-panel-head h2 {
+  margin: 0 0 4px !important;
+
+  font-size: 22px !important;
+  line-height: 1.2 !important;
+}
+
+
+.admin-main .admin-panel-head p {
+  margin: 0 !important;
+
+  font-size: 12.5px !important;
+  line-height: 1.4 !important;
+}
+
+
+/* =========================================================
+   TABLE WRAPPER
+   Table ko squeeze nahi karna — horizontal scroll dena.
+   ========================================================= */
+
+.admin-main .admin-table-wrap {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  border: 0 !important;
+  border-radius: 0 !important;
+
+  background: #fff !important;
+
+  scrollbar-width: thin !important;
+}
+
+
+.admin-main .admin-table-wrap::-webkit-scrollbar {
+  height: 8px !important;
+}
+
+
+.admin-main .admin-table-wrap::-webkit-scrollbar-track {
+  background: #f4f1ea !important;
+}
+
+
+.admin-main .admin-table-wrap::-webkit-scrollbar-thumb {
+  background: #cfc4b8 !important;
+  border-radius: 999px !important;
+}
+
+
+/* =========================================================
+   TABLE
+   IMPORTANT: max-content stops columns from crushing.
+   ========================================================= */
+
+.admin-main .admin-table-wrap table {
+  width: max-content !important;
+  min-width: 100% !important;
+
+  table-layout: auto !important;
+
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+
+  margin: 0 !important;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.admin-main .admin-table-wrap thead th {
+  height: 46px !important;
+
+  padding: 12px 14px !important;
+
+  background: #faf9f5 !important;
+
+  border-bottom: 1px solid #e5e4de !important;
+
+  color: #555850 !important;
+
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  font-weight: 800 !important;
+
+  letter-spacing: 0.055em !important;
+  text-transform: uppercase !important;
+
+  text-align: left !important;
+  vertical-align: middle !important;
+
+  white-space: nowrap !important;
+
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+
+/* =========================================================
+   BODY CELLS
+   ========================================================= */
+
+.admin-main .admin-table-wrap tbody td {
+  height: 66px !important;
+
+  padding: 13px 14px !important;
+
+  border-bottom: 1px solid #ecebe6 !important;
+
+  color: #111711 !important;
+
+  font-size: 12.5px !important;
+  line-height: 1.35 !important;
+
+  text-align: left !important;
+  vertical-align: middle !important;
+
+  white-space: nowrap !important;
+
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}
+
+
+.admin-main .admin-table-wrap tbody tr:last-child td {
+  border-bottom: 0 !important;
+}
+
+
+/* Row hover */
+
+.admin-main .admin-table-wrap tbody tr:hover td {
+  background: #fcfbf8 !important;
+}
+
+
+/* =========================================================
+   ACTION COLUMN
+   REVIEW + SELECT SAME LINE
+   ========================================================= */
+
+.admin-main .admin-table-wrap th:last-child {
+  min-width: 280px !important;
+}
+
+
+.admin-main .admin-table-wrap td:last-child {
+  min-width: 280px !important;
+  width: 280px !important;
+}
+
+
+/* Actual JSX container */
+
+.admin-main .admin-table-wrap .admin-row-actions {
+  width: max-content !important;
+  min-width: 0 !important;
+
+  display: flex !important;
+  flex-direction: row !important;
+
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  flex-wrap: nowrap !important;
+
+  gap: 10px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+/* Review button */
+
+.admin-main .admin-table-wrap .admin-row-actions > button {
+  flex: 0 0 auto !important;
+
+  width: auto !important;
+  min-width: 82px !important;
+
+  height: 40px !important;
+  min-height: 40px !important;
+
+  margin: 0 !important;
+  padding: 0 15px !important;
+
+  border-radius: 9px !important;
+
+  white-space: nowrap !important;
+
+  font-size: 12px !important;
+}
+
+
+/* Dropdown — global width:100% ko override */
+
+.admin-main .admin-table-wrap .admin-row-actions > select {
+  flex: 0 0 170px !important;
+
+  width: 170px !important;
+  min-width: 170px !important;
+  max-width: 170px !important;
+
+  height: 40px !important;
+  min-height: 40px !important;
+
+  margin: 0 !important;
+
+  padding-left: 12px !important;
+  padding-right: 38px !important;
+
+  border-radius: 9px !important;
+
+  background-position: right 12px center !important;
+
+  font-size: 11.5px !important;
+  font-weight: 650 !important;
+}
+
+
+/* =========================================================
+   NORMAL TABLE COLUMN WIDTHS
+   Pets / users / adoption etc.
+   ========================================================= */
+
+.admin-main .admin-table-wrap th:not(:last-child),
+.admin-main .admin-table-wrap td:not(:last-child) {
+  min-width: 120px !important;
+}
+
+
+/* First field often name/reference */
+
+.admin-main .admin-table-wrap th:first-child,
+.admin-main .admin-table-wrap td:first-child {
+  min-width: 150px !important;
+}
+
+
+/* =========================================================
+   WIDE TABLES - LOST & FOUND ETC.
+   If table has many columns, give it real space instead of
+   crushing every heading.
+   ========================================================= */
+
+.admin-main .admin-table-wrap table:has(th:nth-child(8)) {
+  min-width: 1150px !important;
+}
+
+
+.admin-main .admin-table-wrap table:has(th:nth-child(10)) {
+  min-width: 1450px !important;
+}
+
+
+.admin-main .admin-table-wrap table:has(th:nth-child(12)) {
+  min-width: 1750px !important;
+}
+
+
+/* Wide tables slightly more compact cells */
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+th:not(:last-child),
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+td:not(:last-child) {
+  min-width: 105px !important;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.admin-main .admin-table-wrap > .record-empty {
+  width: 100% !important;
+
+  min-height: 130px !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  padding: 24px !important;
+
+  color: #716a62 !important;
+
+  font-size: 13px !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .admin-main .admin-panel-head {
+    padding: 18px 20px 15px !important;
+  }
+
+
+  .admin-main .admin-table-wrap table {
+    min-width: 850px !important;
+  }
+
+
+  .admin-main .admin-table-wrap td:last-child,
+  .admin-main .admin-table-wrap th:last-child {
+    min-width: 260px !important;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   Table scroll karega — columns crush nahi honge.
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .admin-main .admin-panel {
+    border-radius: 12px !important;
+  }
+
+
+  .admin-main .admin-panel-head {
+    padding: 16px !important;
+  }
+
+
+  .admin-main .admin-panel-head h2 {
+    font-size: 19px !important;
+  }
+
+
+  .admin-main .admin-table-wrap table {
+    width: max-content !important;
+    min-width: 820px !important;
+  }
+
+
+  .admin-main .admin-table-wrap thead th {
+    padding: 10px 12px !important;
+
+    font-size: 9.5px !important;
+  }
+
+
+  .admin-main .admin-table-wrap tbody td {
+    height: 60px !important;
+
+    padding: 11px 12px !important;
+
+    font-size: 12px !important;
+  }
+
+
+  .admin-main .admin-table-wrap .admin-row-actions > select {
+    width: 155px !important;
+    min-width: 155px !important;
+
+    flex-basis: 155px !important;
+  }
+
+}
+/* =========================================================
+   ADMIN - EMPTY TABLES + WIDE TABLES + BRAND LOGO FINAL FIX
+   ========================================================= */
+
+
+/* =========================================================
+   1. ADMIN SIDEBAR DOGSVILLA LOGO BIGGER
+   ========================================================= */
+
+.admin-sidebar .admin-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+.admin-sidebar .admin-brand img,
+.admin-sidebar .dogsvilla-mark {
+  width: 54px !important;
+  height: 42px !important;
+  min-width: 54px !important;
+  flex: 0 0 54px !important;
+
+  object-fit: contain !important;
+
+  transform: scale(1.12) !important;
+  transform-origin: center !important;
+}
+
+/* divider ko logo se chipakne mat do */
+.admin-sidebar .brand-divider {
+  margin-left: 3px !important;
+  margin-right: 1px !important;
+}
+
+
+/* =========================================================
+   2. ADMIN PANEL BODY SPACING
+   Verification wali description ab edge pe nahi rahegi
+   ========================================================= */
+
+.admin-main .admin-panel > p {
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 26px 16px !important;
+
+  font-size: 13px !important;
+  line-height: 1.55 !important;
+
+  color: #6d665f !important;
+}
+
+
+/* =========================================================
+   3. EMPTY TABLE / EMPTY STATE
+   Verification / Rescue & Foster / Lost Found empty sections
+   ========================================================= */
+
+/*
+   Jab table wrapper mein record-empty ho,
+   unnecessary horizontal scrolling hata do.
+*/
+
+.admin-main .admin-table-wrap:has(.record-empty) {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+
+  scrollbar-width: none !important;
+}
+
+.admin-main .admin-table-wrap:has(.record-empty)::-webkit-scrollbar {
+  display: none !important;
+}
+
+
+/* Empty table ko 1400px wide hone se rokna */
+
+.admin-main .admin-table-wrap:has(.record-empty) table {
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100% !important;
+
+  table-layout: fixed !important;
+}
+
+
+/* Empty state FULL WIDTH */
+
+.admin-main .admin-table-wrap .record-empty,
+.admin-main .admin-panel > .record-empty {
+  width: 100% !important;
+  max-width: none !important;
+  min-width: 0 !important;
+
+  min-height: 120px !important;
+
+  margin: 0 !important;
+  padding: 24px 26px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+
+  border: 0 !important;
+  border-top: 1px dashed #d8d8d1 !important;
+
+  border-radius: 0 !important;
+
+  background: #fcfcfa !important;
+
+  color: #6c675f !important;
+
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+
+  box-sizing: border-box !important;
+}
+
+
+/* Verification mein direct empty-state ho to clean bordered box */
+
+.admin-main .admin-panel > .record-empty {
+  width: calc(100% - 52px) !important;
+
+  margin: 0 26px 22px !important;
+
+  min-height: 120px !important;
+
+  border: 1px dashed #d5d8d1 !important;
+  border-radius: 12px !important;
+
+  background: #fcfcfa !important;
+}
+
+
+/* =========================================================
+   4. EMPTY TABLE HEADER
+   zero records mein header bhi clean/full width
+   ========================================================= */
+
+.admin-main .admin-table-wrap:has(.record-empty) thead {
+  width: 100% !important;
+}
+
+.admin-main .admin-table-wrap:has(.record-empty) thead tr {
+  display: table-row !important;
+}
+
+.admin-main .admin-table-wrap:has(.record-empty) th {
+  min-width: 0 !important;
+
+  padding: 12px 14px !important;
+
+  white-space: nowrap !important;
+
+  font-size: 9.5px !important;
+}
+
+
+/* =========================================================
+   5. RESCUE & FOSTER ZERO-RECORD PANELS
+   huge blank white area hatao
+   ========================================================= */
+
+.admin-main .admin-panel:has(.record-empty) {
+  min-height: 0 !important;
+}
+
+.admin-main .admin-panel:has(.record-empty) .admin-table-wrap {
+  min-height: 0 !important;
+}
+
+.admin-main .admin-panel:has(.record-empty) .record-empty {
+  min-height: 112px !important;
+}
+
+
+/* =========================================================
+   6. REAL WIDE TABLES
+   Lost & Found jaise actual record wale tables
+   ========================================================= */
+
+.admin-main .admin-table-wrap:not(:has(.record-empty)) {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  scrollbar-gutter: stable !important;
+}
+
+
+/* Normal admin table */
+
+.admin-main .admin-table-wrap:not(:has(.record-empty)) table {
+  width: 100% !important;
+
+  table-layout: auto !important;
+}
+
+
+/*
+   10+ column tables only:
+   horizontal scroll allowed, but excessive width nahi
+*/
+
+.admin-main
+.admin-table-wrap:not(:has(.record-empty))
+table:has(th:nth-child(10)) {
+  width: max-content !important;
+  min-width: 1280px !important;
+}
+
+
+/* 12+ columns */
+
+.admin-main
+.admin-table-wrap:not(:has(.record-empty))
+table:has(th:nth-child(12)) {
+  min-width: 1440px !important;
+}
+
+
+/* Wide table cells compact rakho */
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+th,
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+td {
+  padding-left: 11px !important;
+  padding-right: 11px !important;
+
+  white-space: nowrap !important;
+
+  min-width: auto !important;
+}
+
+
+/* Action column controlled width */
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+th:last-child,
+
+.admin-main
+.admin-table-wrap
+table:has(th:nth-child(10))
+td:last-child {
+  min-width: 245px !important;
+  width: 245px !important;
+}
+
+
+/* =========================================================
+   7. ADMIN ROW ACTIONS
+   Review + dropdown neat
+   ========================================================= */
+
+.admin-main .admin-row-actions {
+  display: flex !important;
+
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+
+  align-items: center !important;
+
+  gap: 9px !important;
+
+  width: max-content !important;
+  max-width: none !important;
+
+  margin: 0 !important;
+}
+
+
+.admin-main .admin-row-actions button {
+  flex: 0 0 auto !important;
+
+  width: auto !important;
+  min-width: 76px !important;
+
+  height: 39px !important;
+  min-height: 39px !important;
+
+  padding: 0 14px !important;
+}
+
+
+/* dropdown compact */
+
+.admin-main .admin-row-actions select {
+  flex: 0 0 165px !important;
+
+  width: 165px !important;
+  min-width: 165px !important;
+  max-width: 165px !important;
+
+  height: 39px !important;
+  min-height: 39px !important;
+
+  padding-left: 11px !important;
+  padding-right: 36px !important;
+
+  background-position: right 11px center !important;
+}
+
+
+/* =========================================================
+   8. ADMIN PANEL HEAD CONSISTENCY
+   ========================================================= */
+
+.admin-main .admin-panel-head {
+  width: 100% !important;
+
+  margin: 0 !important;
+  padding: 22px 26px 18px !important;
+
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+
+  gap: 16px !important;
+}
+
+
+.admin-main .admin-panel-head h2 {
+  margin: 0 0 4px !important;
+
+  font-size: 21px !important;
+  line-height: 1.25 !important;
+}
+
+
+.admin-main .admin-panel-head p {
+  margin: 0 !important;
+
+  font-size: 12.5px !important;
+}
+
+
+/* =========================================================
+   9. MOBILE
+   ========================================================= */
+
+@media (max-width: 860px) {
+
+  .admin-sidebar .admin-brand img,
+  .admin-sidebar .dogsvilla-mark {
+    width: 46px !important;
+    height: 36px !important;
+
+    min-width: 46px !important;
+    flex-basis: 46px !important;
+
+    transform: scale(1.06) !important;
+  }
+
+
+  .admin-main .admin-panel-head {
+    padding: 17px !important;
+  }
+
+
+  .admin-main .admin-panel > p {
+    padding: 0 17px 14px !important;
+  }
+
+
+  .admin-main .admin-panel > .record-empty {
+    width: calc(100% - 34px) !important;
+
+    margin: 0 17px 17px !important;
+  }
+
+
+  .admin-main .admin-table-wrap .record-empty {
+    padding: 20px 17px !important;
+  }
+
+}
